@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://docs.oasis-open.org/odata/ns/edmx http://docs.oasis-open.org/odata/odata/v4.0/os/schemas/edmx.xsd http://docs.oasis-open.org/odata/ns/edm http://docs.oasis-open.org/odata/odata/v4.0/os/schemas/edm.xsd">
+    <edmx:Reference Uri="vocabularies/com.sap.cloud.server.odata.sql.v1.xml">
+        <edmx:Include Namespace="com.sap.cloud.server.odata.sql.v1" Alias="SQL"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.canteen" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityType Name="Booking">
+                <Key>
+                    <PropertyRef Name="BookingID"/>
+                </Key>
+                <Property Name="BookingDate" Type="Edm.DateTimeOffset" Nullable="false"/>
+                <Property Name="BookingID" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="MenuID" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="2"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="User" Type="Edm.String" Nullable="false" MaxLength="100"/>
+            </EntityType>
+            <EntityType Name="Canteen">
+                <Key>
+                    <PropertyRef Name="CanteenID"/>
+                </Key>
+                <Property Name="CanteenID" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="Location" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="MenuID" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="100"/>
+            </EntityType>
+            <EntityContainer Name="CanteenService">
+                <Annotation Term="SQL.TrackChanges"/>
+                <EntitySet Name="BookingSet" EntityType="com.sap.canteen.Booking"/>
+                <EntitySet Name="CanteenSet" EntityType="com.sap.canteen.Canteen"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

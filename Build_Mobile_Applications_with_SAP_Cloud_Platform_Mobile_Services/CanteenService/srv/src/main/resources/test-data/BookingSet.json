@@ -1,0 +1,18 @@
+[
+    {
+        "BookingDate": "2019-08-29T08:20:36.163Z",
+        "BookingID": 101,
+        "MenuID": 1234567890123,
+        "Price": 12345678.12,
+        "Status": "ABCDEFGHIJKLMNOPQRST",
+        "User": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+        "BookingDate": "2019-08-29T08:20:36.163Z",
+        "BookingID": 102,
+        "MenuID": 9876543210987,
+        "Price": 98765432.98,
+        "Status": "XYZ",
+        "User": "XYZ"
+    }
+]

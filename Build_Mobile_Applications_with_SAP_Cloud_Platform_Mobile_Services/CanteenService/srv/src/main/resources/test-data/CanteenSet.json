@@ -1,0 +1,14 @@
+[
+    {
+        "CanteenID": 201,
+        "Location": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "MenuID": 1234567890123,
+        "Name": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+        "CanteenID": 202,
+        "Location": "XYZ",
+        "MenuID": 9876543210987,
+        "Name": "XYZ"
+    }
+]
