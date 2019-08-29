@@ -1,0 +1,9 @@
+ID: appId
+_schema-version: '2.1'
+version: 1.0.0
+modules:
+ - name: srv
+   type: java
+   path: srv
+   parameters:
+      memory: 1024M
