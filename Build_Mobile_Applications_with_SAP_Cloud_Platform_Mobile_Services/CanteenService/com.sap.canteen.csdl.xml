@@ -11,10 +11,14 @@
                 </Key>
                 <Property Name="BookingDate" Type="Edm.DateTimeOffset" Nullable="false"/>
                 <Property Name="BookingID" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="DishMenuID" Type="Edm.Int64" Nullable="false"/>
                 <Property Name="MenuID" Type="Edm.Int64" Nullable="false"/>
                 <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="2"/>
                 <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="20"/>
                 <Property Name="User" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <NavigationProperty Name="Bookings" Type="com.sap.canteen.DishMenu" Nullable="false" Partner="MenuBooked">
+                    <ReferentialConstraint Property="DishMenuID" ReferencedProperty="DishMenuID"/>
+                </NavigationProperty>
             </EntityType>
             <EntityType Name="Canteen">
                 <Key>
@@ -24,11 +28,40 @@
                 <Property Name="Location" Type="Edm.String" Nullable="false" MaxLength="100"/>
                 <Property Name="MenuID" Type="Edm.Int64" Nullable="false"/>
                 <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <NavigationProperty Name="serveMenues" Type="Collection(com.sap.canteen.DishMenu)" Partner="inCanteen"/>
+            </EntityType>
+            <EntityType Name="DishMenu">
+                <Key>
+                    <PropertyRef Name="DishMenuID"/>
+                </Key>
+                <Property Name="BookingID" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="CanteenID" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="Dessert" Type="Edm.String" Nullable="true"/>
+                <Property Name="DishMenuID" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="MainDish" Type="Edm.String" Nullable="false"/>
+                <Property Name="Price" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="2"/>
+                <Property Name="Sides" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="Soup" Type="Edm.String" Nullable="true" MaxLength="100"/>
+                <Property Name="dateOfLunch" Type="Edm.DateTimeOffset" Nullable="false"/>
+                <Property Name="kcalForMain" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="veggie" Type="Edm.Boolean" Nullable="true"/>
+                <NavigationProperty Name="MenuBooked" Type="Collection(com.sap.canteen.Booking)" Partner="Bookings"/>
+                <NavigationProperty Name="inCanteen" Type="com.sap.canteen.Canteen" Nullable="false" Partner="serveMenues">
+                    <ReferentialConstraint Property="CanteenID" ReferencedProperty="CanteenID"/>
+                </NavigationProperty>
             </EntityType>
             <EntityContainer Name="CanteenService">
                 <Annotation Term="SQL.TrackChanges"/>
-                <EntitySet Name="BookingSet" EntityType="com.sap.canteen.Booking"/>
-                <EntitySet Name="CanteenSet" EntityType="com.sap.canteen.Canteen"/>
+                <EntitySet Name="BookingSet" EntityType="com.sap.canteen.Booking">
+                    <NavigationPropertyBinding Path="Bookings" Target="DishMenuSet"/>
+                </EntitySet>
+                <EntitySet Name="CanteenSet" EntityType="com.sap.canteen.Canteen">
+                    <NavigationPropertyBinding Path="serveMenues" Target="DishMenuSet"/>
+                </EntitySet>
+                <EntitySet Name="DishMenuSet" EntityType="com.sap.canteen.DishMenu">
+                    <NavigationPropertyBinding Path="MenuBooked" Target="BookingSet"/>
+                    <NavigationPropertyBinding Path="inCanteen" Target="CanteenSet"/>
+                </EntitySet>
             </EntityContainer>
         </Schema>
     </edmx:DataServices>

@@ -1,15 +1,17 @@
 [
     {
-        "BookingDate": "2019-08-29T08:20:36.163Z",
+        "BookingDate": "2019-08-29T09:13:13.752Z",
         "BookingID": 101,
+        "DishMenuID": 301,
         "MenuID": 1234567890123,
         "Price": 12345678.12,
         "Status": "ABCDEFGHIJKLMNOPQRST",
         "User": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     },
     {
-        "BookingDate": "2019-08-29T08:20:36.163Z",
+        "BookingDate": "2019-08-29T09:13:13.752Z",
         "BookingID": 102,
+        "DishMenuID": 302,
         "MenuID": 9876543210987,
         "Price": 98765432.98,
         "Status": "XYZ",

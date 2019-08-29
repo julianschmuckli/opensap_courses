@@ -10,7 +10,7 @@ public abstract class CanteenServiceMetadataParser
 
     public static com.sap.cloud.server.odata.csdl.CsdlDocument parse()
     {
-        //# /usr/sap/ljs/xs-temp/d3ad2e00-2088-4594-a40d-c7acae86ff33/output/target/tmp/proxy-com.sap.canteen.csdl.xs:256:12
+        //# /usr/sap/ljs/xs-temp/6e154f94-7f0b-467f-a445-1d4d93dde994/output/target/tmp/proxy-com.sap.canteen.csdl.xs:542:12
         final com.sap.cloud.server.odata.csdl.CsdlParser parser = new com.sap.cloud.server.odata.csdl.CsdlParser();
         parser.setLogWarnings(false);
         parser.setCsdlOptions(com.sap.canteen.proxy.internal.CanteenServiceMetadataParser.options);

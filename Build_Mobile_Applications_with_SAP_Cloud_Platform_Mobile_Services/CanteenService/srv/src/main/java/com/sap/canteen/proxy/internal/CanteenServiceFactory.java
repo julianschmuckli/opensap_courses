@@ -6,9 +6,10 @@ public abstract class CanteenServiceFactory
 {
     public static void registerAll()
     {
-        //# /usr/sap/ljs/xs-temp/d3ad2e00-2088-4594-a40d-c7acae86ff33/output/target/tmp/proxy-com.sap.canteen.csdl.xs:296:12
+        //# /usr/sap/ljs/xs-temp/6e154f94-7f0b-467f-a445-1d4d93dde994/output/target/tmp/proxy-com.sap.canteen.csdl.xs:584:12
         com.sap.canteen.proxy.CanteenServiceMetadata.EntityTypes.booking.registerFactory(new com.sap.canteen.proxy.internal.CanteenServiceFactory.CreateBooking());
         com.sap.canteen.proxy.CanteenServiceMetadata.EntityTypes.canteen.registerFactory(new com.sap.canteen.proxy.internal.CanteenServiceFactory.CreateCanteen());
+        com.sap.canteen.proxy.CanteenServiceMetadata.EntityTypes.dishMenu.registerFactory(new com.sap.canteen.proxy.internal.CanteenServiceFactory.CreateDishMenu());
     }
 
     public static class CreateBooking
@@ -16,7 +17,7 @@ public abstract class CanteenServiceFactory
     {
         @java.lang.Override public Object create()
         {
-            //# /usr/sap/ljs/xs-temp/d3ad2e00-2088-4594-a40d-c7acae86ff33/output/target/tmp/proxy-com.sap.canteen.csdl.xs:316:9
+            //# /usr/sap/ljs/xs-temp/6e154f94-7f0b-467f-a445-1d4d93dde994/output/target/tmp/proxy-com.sap.canteen.csdl.xs:610:9
             return new com.sap.canteen.proxy.Booking(false);
         }
     }
@@ -26,8 +27,18 @@ public abstract class CanteenServiceFactory
     {
         @java.lang.Override public Object create()
         {
-            //# /usr/sap/ljs/xs-temp/d3ad2e00-2088-4594-a40d-c7acae86ff33/output/target/tmp/proxy-com.sap.canteen.csdl.xs:326:9
+            //# /usr/sap/ljs/xs-temp/6e154f94-7f0b-467f-a445-1d4d93dde994/output/target/tmp/proxy-com.sap.canteen.csdl.xs:620:9
             return new com.sap.canteen.proxy.Canteen(false);
+        }
+    }
+
+    public static class CreateDishMenu
+    extends com.sap.cloud.server.odata.core.ObjectFactory
+    {
+        @java.lang.Override public Object create()
+        {
+            //# /usr/sap/ljs/xs-temp/6e154f94-7f0b-467f-a445-1d4d93dde994/output/target/tmp/proxy-com.sap.canteen.csdl.xs:630:9
+            return new com.sap.canteen.proxy.DishMenu(false);
         }
     }
 }
