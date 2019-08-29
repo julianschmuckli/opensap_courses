@@ -50,6 +50,11 @@
                     <ReferentialConstraint Property="CanteenID" ReferencedProperty="CanteenID"/>
                 </NavigationProperty>
             </EntityType>
+            <Function Name="BookLunch">
+                <Parameter Name="MenuID" Type="Edm.Int64" Nullable="false"/>
+                <Parameter Name="UserID" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <ReturnType Type="Edm.Boolean" Nullable="false"/>
+            </Function>
             <EntityContainer Name="CanteenService">
                 <Annotation Term="SQL.TrackChanges"/>
                 <EntitySet Name="BookingSet" EntityType="com.sap.canteen.Booking">
@@ -62,6 +67,7 @@
                     <NavigationPropertyBinding Path="MenuBooked" Target="BookingSet"/>
                     <NavigationPropertyBinding Path="inCanteen" Target="CanteenSet"/>
                 </EntitySet>
+                <FunctionImport Name="BookLunch" Function="com.sap.canteen.BookLunch"/>
             </EntityContainer>
         </Schema>
     </edmx:DataServices>

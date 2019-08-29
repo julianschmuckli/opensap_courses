@@ -9,7 +9,7 @@ Sample test data for file BookingSet.json:
 ''' JSON
 [
     {
-        "BookingDate": "2019-08-29T09:13:13.752Z",
+        "BookingDate": "2019-08-29T10:46:56.492Z",
         "BookingID": 101,
         "DishMenuID": 301,
         "MenuID": 1234567890123,
@@ -18,7 +18,7 @@ Sample test data for file BookingSet.json:
         "User": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     },
     {
-        "BookingDate": "2019-08-29T09:13:13.752Z",
+        "BookingDate": "2019-08-29T10:46:56.492Z",
         "BookingID": 102,
         "DishMenuID": 302,
         "MenuID": 9876543210987,
@@ -61,7 +61,7 @@ Sample test data for file DishMenuSet.json:
         "Price": 12345678.12,
         "Sides": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
         "Soup": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "dateOfLunch": "2019-08-29T09:13:13.753Z",
+        "dateOfLunch": "2019-08-29T10:46:56.492Z",
         "kcalForMain": 123,
         "veggie": false
     },
@@ -74,7 +74,7 @@ Sample test data for file DishMenuSet.json:
         "Price": 98765432.98,
         "Sides": "XYZ",
         "Soup": null,
-        "dateOfLunch": "2019-08-29T09:13:13.753Z",
+        "dateOfLunch": "2019-08-29T10:46:56.492Z",
         "kcalForMain": 789,
         "veggie": null
     }

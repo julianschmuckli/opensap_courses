@@ -1,1 +1,1 @@
-{"appName":"CanteenService","appVersion":"0.1.0","db":"imdb","dbType":"postgresql","dbName":"","deployTo":"sap.cf","authMethod":"NONE","enableTestMode":true,"additionalParams":""}
+{"appName":"CanteenService","appVersion":"0.1.1","db":"imdb","dbType":"postgresql","dbName":"","deployTo":"sap.cf","authMethod":"NONE","enableTestMode":true,"additionalParams":""}

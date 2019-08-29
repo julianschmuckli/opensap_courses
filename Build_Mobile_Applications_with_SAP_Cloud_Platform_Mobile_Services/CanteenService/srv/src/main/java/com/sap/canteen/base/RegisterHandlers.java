@@ -18,5 +18,6 @@ class RegisterHandlers {
         servlet.registerEntityHandler(com.sap.canteen.proxy.CanteenServiceMetadata.EntityTypes.booking, handler_Booking);
         servlet.registerEntityHandler(com.sap.canteen.proxy.CanteenServiceMetadata.EntityTypes.canteen, handler_Canteen);
         servlet.registerEntityHandler(com.sap.canteen.proxy.CanteenServiceMetadata.EntityTypes.dishMenu, handler_DishMenu);
+        servlet.registerMethodHandler(com.sap.canteen.proxy.CanteenServiceMetadata.FunctionImports.bookLunch, new com.sap.canteen.handler.BookLunchHandler(servlet, service));
     }
 }

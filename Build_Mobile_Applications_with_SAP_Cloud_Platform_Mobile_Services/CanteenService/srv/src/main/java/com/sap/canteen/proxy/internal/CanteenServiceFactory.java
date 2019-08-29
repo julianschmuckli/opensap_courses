@@ -6,7 +6,7 @@ public abstract class CanteenServiceFactory
 {
     public static void registerAll()
     {
-        //# /usr/sap/ljs/xs-temp/6e154f94-7f0b-467f-a445-1d4d93dde994/output/target/tmp/proxy-com.sap.canteen.csdl.xs:584:12
+        //# /usr/sap/ljs/xs-temp/6c8af6ad-68de-45dd-bec6-5ffd60f0fa22/output/target/tmp/proxy-com.sap.canteen.csdl.xs:594:12
         com.sap.canteen.proxy.CanteenServiceMetadata.EntityTypes.booking.registerFactory(new com.sap.canteen.proxy.internal.CanteenServiceFactory.CreateBooking());
         com.sap.canteen.proxy.CanteenServiceMetadata.EntityTypes.canteen.registerFactory(new com.sap.canteen.proxy.internal.CanteenServiceFactory.CreateCanteen());
         com.sap.canteen.proxy.CanteenServiceMetadata.EntityTypes.dishMenu.registerFactory(new com.sap.canteen.proxy.internal.CanteenServiceFactory.CreateDishMenu());
@@ -17,7 +17,7 @@ public abstract class CanteenServiceFactory
     {
         @java.lang.Override public Object create()
         {
-            //# /usr/sap/ljs/xs-temp/6e154f94-7f0b-467f-a445-1d4d93dde994/output/target/tmp/proxy-com.sap.canteen.csdl.xs:610:9
+            //# /usr/sap/ljs/xs-temp/6c8af6ad-68de-45dd-bec6-5ffd60f0fa22/output/target/tmp/proxy-com.sap.canteen.csdl.xs:620:9
             return new com.sap.canteen.proxy.Booking(false);
         }
     }
@@ -27,7 +27,7 @@ public abstract class CanteenServiceFactory
     {
         @java.lang.Override public Object create()
         {
-            //# /usr/sap/ljs/xs-temp/6e154f94-7f0b-467f-a445-1d4d93dde994/output/target/tmp/proxy-com.sap.canteen.csdl.xs:620:9
+            //# /usr/sap/ljs/xs-temp/6c8af6ad-68de-45dd-bec6-5ffd60f0fa22/output/target/tmp/proxy-com.sap.canteen.csdl.xs:630:9
             return new com.sap.canteen.proxy.Canteen(false);
         }
     }
@@ -37,7 +37,7 @@ public abstract class CanteenServiceFactory
     {
         @java.lang.Override public Object create()
         {
-            //# /usr/sap/ljs/xs-temp/6e154f94-7f0b-467f-a445-1d4d93dde994/output/target/tmp/proxy-com.sap.canteen.csdl.xs:630:9
+            //# /usr/sap/ljs/xs-temp/6c8af6ad-68de-45dd-bec6-5ffd60f0fa22/output/target/tmp/proxy-com.sap.canteen.csdl.xs:640:9
             return new com.sap.canteen.proxy.DishMenu(false);
         }
     }
