@@ -1,0 +1,101 @@
+{
+	"APNSEnabled": true,
+	"ActionConfiguration": {
+		"Actions": [
+			{
+				"ActionBody": "",
+				"ActionHeaders": [
+					{
+						"HeaderName": "X-Requested-With",
+						"HeaderValue": "XMLHttpRequest"
+					}
+				],
+				"ActionName": "BookMenu",
+				"ActionParameters": [
+				],
+				"ActionUrl": "/CanteenService.BookLunch?MenuID=${mID}&UserID='${userId}'",
+				"AddCarriageReturn": false,
+				"EnabledForDeviceNotification": true,
+				"HttpMethod": "GET",
+				"Labels": [
+					{
+						"language": "EN",
+						"text": "Book"
+					}
+				]
+			}
+		],
+		"BehaviorAfterAction": "INACTIVE",
+		"XCSRFTokenUrl": ""
+	},
+	"AppLaunchUrl": "",
+	"AutoSubscribe": false,
+	"CardClass": "HtmlTemplate",
+	"CollectionType": "useCollection",
+	"Connection": "com.sap.mobile.platform.cards",
+	"CustomType": "Query",
+	"Descriptions": [
+		{
+			"language": "EN",
+			"text": ""
+		}
+	],
+	"DevelopmentStatus": "Productive",
+	"GatekeeperConfiguration": null,
+	"HiddenSubscription": false,
+	"LastModifiedAt": "2019-04-29T14:24:11.396Z",
+	"LastModifiedBy": "P1942218264",
+	"Locked": true,
+	"Name": "LunchReceipt",
+	"NewsEnabled": false,
+	"NotificationMessages": null,
+	"NotificationRules": [
+	],
+	"Parameters": {
+		"Parameters": [
+			{
+				"Name": "mID",
+				"Propagate": true,
+				"ResourceOrderNumber": 0,
+				"Value": "$.d.MenuID",
+				"displayName": "mID"
+			}
+		]
+	},
+	"QueryConfiguration": {
+		"CacheQueryResult": false,
+		"QueryEntityKeyPaths": [
+			"$.d.__metadata.uri"
+		],
+		"QueryURLCollectionRoot": "$.d.results"
+	},
+	"QueryInterval": "P1DT0H0M",
+	"QueryReturnsEntityCollection": true,
+	"QueryType": "custom",
+	"QueryURL": "/CanteenSet(2)/serveMenus",
+	"RefreshType": "upToDate",
+	"ResourceIdentifiers": [
+		{
+			"ImagePaths": "",
+			"Order": 0,
+			"Uri": ""
+		}
+	],
+	"SortCardsWith": null,
+	"SubscribableTo": {
+		"Users": [
+		]
+	},
+	"SubscribableToValidationEnabled": false,
+	"TemplateName": "User defined template",
+	"UrlMatch": null,
+	"changedNotification": "",
+	"imagePathBack": "",
+	"imagePathFront": "",
+	"newNotification": "",
+	"showData": "{\n    \"d\": {\n        \"__metadata\": {\n            \"id\": \"MenuSet(2L)\",\n            \"uri\": \"MenuSet(2L)\"\n        },\n        \"Bookings\": {\n            \"__deferred\": {\n                \"uri\": \"MenuSet(2L)/Bookings\"\n            }\n        },\n        \"CanteenID\": \"2\",\n        \"Dessert\": null,\n        \"MainDish\": \"XYZ\",\n        \"MenuID\": \"2\",\n        \"Price\": \"6.98\",\n        \"Sides\": null,\n        \"Soup\": null,\n        \"dateOfLunch\": \"/Date(1555059154398)/\",\n        \"inCanteen\": {\n            \"__deferred\": {\n                \"uri\": \"MenuSet(2L)/inCanteen\"\n            }\n        },\n        \"kcalForMain\": 434,\n        \"veggie\": true\n    }\n}",
+	"showDataBackButton": false,
+	"showDataButton": true,
+	"showDataPanel": false,
+	"templateName": "Basic Mobile Card Template"
+}
