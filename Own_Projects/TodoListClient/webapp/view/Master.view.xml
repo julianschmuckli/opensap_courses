@@ -1,0 +1,21 @@
+<mvc:View controllerName="ch.avectris.todo.TodoListClient.controller.Master" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<List
+							items="{todo_service>/todo_itemsSet}">
+							<items>
+								<ObjectListItem title="{todo_service>title}">
+									<ObjectAttribute title="Beschreibung" text="{todo_service>description}"></ObjectAttribute>
+									<ObjectAttribute title="Fertigstellung" text="{ path: 'todo_service>finishDate', formatter: '.formatter.dateFormat'}"></ObjectAttribute>
+								</ObjectListItem>
+							</items>
+						</List>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

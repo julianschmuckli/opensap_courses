@@ -1,0 +1,10 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:edmx4="http://docs.oasis-open.org/odata/ns/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ch.avectris.todo">
+			<EntityType Name="todo_items">
+				<Key><PropertyRef Name="todo_itemsID"/></Key><Property Name="description" Type="Edm.String" Nullable="false"/><Property Name="finishDate" Type="Edm.DateTime" Nullable="false" sap:display-format="Date"/><Property Name="title" Type="Edm.String" Nullable="false"/><Property Name="todo_itemsID" Type="Edm.Int64" Nullable="false"/></EntityType>
+			<EntityContainer Name="TodoService" m:IsDefaultEntityContainer="true"><EntitySet Name="todo_itemsSet" EntityType="ch.avectris.todo.todo_items"/></EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
