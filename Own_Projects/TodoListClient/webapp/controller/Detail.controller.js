@@ -35,6 +35,41 @@ sap.ui.define([
 		  });
 		},
 		
+		onEditActivatePress: function (){
+			this.getView().byId("detail_todo_name").setEditable(true);
+			this.getView().byId("detail_todo_description").setEditable(true);
+			this.getView().byId("detail_todo_finishDate").setEditable(true);
+			this.getView().byId("detail_edit_activate").setVisible(false);
+			this.getView().byId("detail_edit_save").setVisible(true);
+		},
+		
+		lockFields: function (){
+			this.getView().byId("detail_todo_name").setEditable(false);
+			this.getView().byId("detail_todo_description").setEditable(false);
+			this.getView().byId("detail_todo_finishDate").setEditable(false);
+			this.getView().byId("detail_edit_activate").setVisible(true);
+			this.getView().byId("detail_edit_save").setVisible(false);
+		},
+		
+		onEditPress: function() {
+			var name = this.getView().byId("detail_todo_name").getValue();
+			var description = this.getView().byId("detail_todo_description").getValue();
+			var finishDate = this.getView().byId("detail_todo_finishDate").getValue();
+			
+			var date = this.convertToDate(finishDate);
+			
+			this.getView().getModel('todo_service').update('/todo_itemsSet(' + this.current_todo_id + ')', {
+				title: name,
+				description: description,
+				finishDate: date.toISOString()
+			}, {
+				success: function() {
+					this.showSuccessMessage({message: "The todo item has been updated."});
+					this.lockFields();
+				}.bind(this)
+			});
+		},
+		
 		onDeletePress: function(){
 			this.showConfirmDialog("Do you really want to delete this todo item?", function(){
 				//When user has click on confirm.

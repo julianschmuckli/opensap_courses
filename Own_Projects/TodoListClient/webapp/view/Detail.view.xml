@@ -1,30 +1,45 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"
-	controllerName="ch.avectris.todo.TodoListClient.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	xmlns:l="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	controllerName="ch.avectris.todo.TodoListClient.controller.Detail">
 	<App>
 		<pages>
-			<Page
-				title="{todo_service>title}"
-				showNavButton="true"
-				navButtonPress="onNavBack">
+			<Page title="{todo_service>title}" showNavButton="true" navButtonPress="onNavBack">
 				<content>
-					<VBox
-						id="generalDetails"
-						class="sapUiMediumMargin">
-						
-						<Label text="Description" class="sapUiSmallMarginTop"/>
-						<Text text="{todo_service>description}" />
+					<form:SimpleForm maxContainerCols="2"
+                          editable="true"
+                          layout="ResponsiveGridLayout"
+                          labelSpanL="3"
+                          labelSpanM="3"
+                          emptySpanL="0"
+                          emptySpanM="0"
+                          columnsL="2"
+                          columnsM="2"
+                          adjustLabelSpan="false"
+                          id="detail_todo_form"
+                          class="editableForm">
+						<form:content>
+							<Label text="Name"></Label>
+							<Input value="{todo_service>title}" editable="false" valueLiveUpdate="true" id="detail_todo_name" />
+							<Label text="Description"></Label>
+							<TextArea value="{todo_service>description}" editable="false" id="detail_todo_description"/>
+							<Label text="Finish date"></Label>
+							<DatePicker value="{path: 'todo_service>finishDate', formatter: '.formatter.dateFormat' }" editable="false" valueFormat="dd.MM.yyyy"  id="detail_todo_finishDate"/>
+							<Label text=""/>
+							<Button text="Edit" width="10em" id="detail_edit_activate" press="onEditActivatePress"></Button>
+							<Button text="Save" width="10em" id="detail_edit_save" press="onEditPress" visible="false"></Button>
+						</form:content>
+					</form:SimpleForm>
 					
-						<Label text="Finish date" class="sapUiSmallMarginTop"/>
-						<Text text="{path: 'todo_service>finishDate', formatter: '.formatter.dateFormat' }" />
-					</VBox>
 				</content>
 				<footer>
 					<Bar>
 						<contentRight>
-							<Button
-					        	text="Delete"
-					        	type="Reject"
-								press="onDeletePress" />
+							<Button text="Delete" type="Reject" press="onDeletePress"/>
 						</contentRight>
 					</Bar>
 				</footer>
