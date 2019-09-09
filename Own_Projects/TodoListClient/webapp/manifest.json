@@ -70,7 +70,7 @@
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
 					"defaultOperationMode": "Server",
-					"defaultBindingMode": "OneWay",
+					"defaultBindingMode": "TwoWay",
 					"defaultCountMode": "Request"
 				},
 				"dataSource": "TodoBackend",
@@ -93,17 +93,42 @@
 				"clearControlAggregation": false
 			},
 			"routes": [{
-				"name": "RouteMaster",
+				"name": "TargetMaster",
 				"pattern": "RouteMaster",
 				"target": ["TargetMaster"]
+			}, {
+				"name": "NewTodo",
+				"pattern": "new",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["NewTodo"]
+			}, {
+				"name": "Detail",
+				"pattern": "detail/{todoId}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["Detail"]
 			}],
 			"targets": {
 				"TargetMaster": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewId": "Master",
-					"viewName": "Master"
+					"viewId": "master",
+					"viewName": "Master",
+					"viewLevel": 1
+				},
+				"NewTodo": {
+					"viewType": "XML",
+					"viewName": "NewTodo",
+					"viewLevel": 2,
+					"viewId": "newtodo"
+				},
+				"Detail": {
+					"viewType": "XML",
+					"viewName": "Detail",
+					"viewId": "detail",
+					"viewLevel": 2
 				}
 			}
 		}

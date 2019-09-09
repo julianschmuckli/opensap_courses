@@ -5,15 +5,29 @@
 				<Page id="page" title="{i18n>title}">
 					<content>
 						<List
-							items="{todo_service>/todo_itemsSet}">
+							items="{todo_service>/todo_itemsSet}"
+							id="todo_list"
+							growing="true"
+							growingThreshold="10"
+							growingScrollToLoad="true"
+							>
 							<items>
-								<ObjectListItem title="{todo_service>title}">
+								<ObjectListItem type="Navigation" press=".onTodoPress" title="{todo_service>title}">
 									<ObjectAttribute title="Beschreibung" text="{todo_service>description}"></ObjectAttribute>
 									<ObjectAttribute title="Fertigstellung" text="{ path: 'todo_service>finishDate', formatter: '.formatter.dateFormat'}"></ObjectAttribute>
 								</ObjectListItem>
 							</items>
 						</List>
 					</content>
+					<footer>
+						<Bar>
+							<contentRight>
+								<Button
+						        	text="New"
+									press="onNewPress" />
+							</contentRight>
+						</Bar>
+					</footer>
 				</Page>
 			</pages>
 		</App>
