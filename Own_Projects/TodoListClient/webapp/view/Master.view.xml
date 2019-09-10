@@ -26,8 +26,15 @@
 										<ObjectAttribute title="Fertigstellung" text="{ path: 'todo_service>finishDate', formatter: '.formatter.dateFormat'}"/>
 									</attributes>
 									<markers>
-										<ObjectMarker type="{= ${todo_service>done} ? 'Flagged' : 'Unsaved' }"/>
+										<ObjectMarker type="{= ${todo_service>done} ? 'Flagged' : 'Favorite' }" additionalInfo="T"/>
 									</markers>
+									<firstStatus>
+										<ObjectStatus
+											text="{path: 'todo_service>finishDate', formatter: '.formatter.checkIfDelayedText'}"
+											state="{path: 'todo_service>finishDate', formatter: '.formatter.checkIfDelayedState'}"
+											visible="{= !${todo_service>done}}"
+										></ObjectStatus>
+									</firstStatus>
 								</ObjectListItem>
 							</items>
 						</List>

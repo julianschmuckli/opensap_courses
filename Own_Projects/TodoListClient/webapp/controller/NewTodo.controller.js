@@ -44,6 +44,17 @@ sap.ui.define([
 			});
 		},
 		
+		onBarcodeScanPress: function() {
+			jQuery.sap.require("sap.ndc.BarcodeScanner");
+			sap.ndc.BarcodeScanner.scan(
+			    function (oResult) {
+			    	this.getView().byId("new_todo_name").setValue(oResult.text);
+			    }.bind(this),
+			    function (oError) { this.showSuccessMessage("There was an error while reading the barcode."); }.bind(this),
+			    function (oResult) { this.getView().byId("new_todo_name").setValue(oResult.text); }.bind(this)
+			);
+		},
+		
 		resetForm: function(){
 			this.getView().byId("new_todo_name").setValue("");
 			this.getView().byId("new_todo_description").setValue("");

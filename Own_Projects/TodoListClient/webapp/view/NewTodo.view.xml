@@ -3,22 +3,11 @@
 		<pages>
 			<Page title="New Todo" showNavButton="true" navButtonPress="onNavBack">
 				<content>
-					<form:SimpleForm 
-						maxContainerCols="2" 
-						editable="true" 
-						layout="ResponsiveGridLayout" 
-						labelSpanL="3" 
-						labelSpanM="3" 
-						emptySpanL="0" 
-						emptySpanM="0" 
-						columnsL="2" 
-						columnsM="2"
-						adjustLabelSpan="false" 
-						id="new_todo_form" 
-						class="editableForm">
+					<form:SimpleForm maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" adjustLabelSpan="false" id="new_todo_form" class="editableForm">
 						<form:content>
 							<Label text="Name"/>
 							<Input placeholder="" required="true" id="new_todo_name"/>
+							<Button icon="sap-icon://bar-code" press="onBarcodeScanPress" type="Emphasized"/>
 							<Label text="Description"/>
 							<TextArea placeholder="" required="false" id="new_todo_description"/>
 							<Label text="Finish date"/>
