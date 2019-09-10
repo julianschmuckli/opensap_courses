@@ -20,6 +20,20 @@ sap.ui.define([
 		
 		onNewPress: function() {
 			this.getRouter().navTo("NewTodo");
+		},
+		
+		getGroupHeader: function (oGroup){
+			var title;
+			if (oGroup.key) {
+				title = "Done";
+			} else {
+				title = "Pending";
+			}
+			
+			return new sap.m.GroupHeaderListItem({
+				title : title,
+				upperCase : false
+			});
 		}
 	});
 });

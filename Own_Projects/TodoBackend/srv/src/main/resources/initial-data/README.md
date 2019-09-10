@@ -10,13 +10,15 @@ Sample initial data for file todo_itemsSet.json:
 [
     {
         "description": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "finishDate": "2019-09-05T14:18:43.394",
+        "done": false,
+        "finishDate": "2019-09-10T08:17:16.419",
         "title": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
         "todo_itemsID": "101"
     },
     {
         "description": "XYZ",
-        "finishDate": "2019-09-05T14:18:43.394",
+        "done": true,
+        "finishDate": "2019-09-10T08:17:16.419",
         "title": "XYZ",
         "todo_itemsID": "102"
     }

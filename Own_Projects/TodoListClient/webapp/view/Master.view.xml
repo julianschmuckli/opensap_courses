@@ -1,20 +1,33 @@
-<mvc:View controllerName="ch.avectris.todo.TodoListClient.controller.Master" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ch.avectris.todo.TodoListClient.controller.Master" displayBlock="true">
 	<Shell id="shell">
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<List
-							items="{todo_service>/todo_itemsSet}"
+						<List 
+							items="{
+								path: 'todo_service>/todo_itemsSet',
+								sorter: {
+									path: 'done',
+									descending: false,
+									group: true
+								},
+								groupHeaderFactory: '.getGroupHeader'
+							}"
+							noDataText="No data available"
 							id="todo_list"
 							growing="true"
 							growingThreshold="10"
-							growingScrollToLoad="true"
-							>
+							growingScrollToLoad="true">
 							<items>
-								<ObjectListItem type="Navigation" press=".onTodoPress" title="{todo_service>title}">
-									<ObjectAttribute title="Beschreibung" text="{todo_service>description}"></ObjectAttribute>
-									<ObjectAttribute title="Fertigstellung" text="{ path: 'todo_service>finishDate', formatter: '.formatter.dateFormat'}"></ObjectAttribute>
+								<ObjectListItem type="Navigation" press=".onTodoPress" icon="" title="{todo_service>title}">
+									<attributes>
+										<ObjectAttribute title="Beschreibung" text="{todo_service>description}"/>
+										<ObjectAttribute title="Fertigstellung" text="{ path: 'todo_service>finishDate', formatter: '.formatter.dateFormat'}"/>
+									</attributes>
+									<markers>
+										<ObjectMarker type="{= ${todo_service>done} ? 'Flagged' : 'Unsaved' }"/>
+									</markers>
 								</ObjectListItem>
 							</items>
 						</List>
@@ -22,9 +35,7 @@
 					<footer>
 						<Bar>
 							<contentRight>
-								<Button
-						        	text="New"
-									press="onNewPress" />
+								<Button text="New" press="onNewPress" icon="sap-icon://write-new"/>
 							</contentRight>
 						</Bar>
 					</footer>

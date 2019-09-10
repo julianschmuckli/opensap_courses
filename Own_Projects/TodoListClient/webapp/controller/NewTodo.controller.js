@@ -14,6 +14,12 @@ sap.ui.define([
 
 		},
 		
+		onAfterRendering: function(){
+			setTimeout(function() {
+				this.getView().byId("new_todo_name").focus();
+			}.bind(this), 500);
+		},
+		
 		onAddPress: function () {
 			var name = this.getView().byId("new_todo_name").getValue();
 			var description = this.getView().byId("new_todo_description").getValue();
@@ -32,6 +38,7 @@ sap.ui.define([
 				success: function() {
 					this.showSuccessMessage({message: "The item has been added."}, 2000);
 					this.resetForm();
+					this.refreshMainModel();
 					this.onNavBack();
 				}.bind(this)
 			});

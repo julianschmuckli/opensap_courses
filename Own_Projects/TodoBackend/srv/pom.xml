@@ -37,12 +37,6 @@
             <version>${slf4j-api.version}</version>
         </dependency>
     </dependencies>
-    <repositories>
-        <repository>
-            <id>embedded-odata-api</id>
-            <url>file:${project.basedir}/lib</url>
-        </repository>
-    </repositories>
     <build>
         <plugins>
             <plugin>

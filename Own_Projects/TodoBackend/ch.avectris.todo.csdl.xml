@@ -10,6 +10,7 @@
                     <PropertyRef Name="todo_itemsID"/>
                 </Key>
                 <Property Name="description" Type="Edm.String" Nullable="false"/>
+                <Property Name="done" Type="Edm.Boolean" Nullable="false"/>
                 <Property Name="finishDate" Type="Edm.DateTime" Nullable="false" sap:display-format="Date"/>
                 <Property Name="title" Type="Edm.String" Nullable="false"/>
                 <Property Name="todo_itemsID" Type="Edm.Int64" Nullable="false"/>

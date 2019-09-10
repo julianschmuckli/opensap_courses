@@ -24,6 +24,10 @@ sap.ui.define([
 			}
 		},
 		
+		refreshMainModel: function() {
+			this.getView().getModel('todo_service').refresh();
+		},
+		
 		showMessageErrorDialog: function (message) {
 			var dialog = new Dialog({
 				title: "Error",

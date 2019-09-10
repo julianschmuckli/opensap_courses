@@ -1,41 +1,35 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-	xmlns:form="sap.ui.layout.form"
-	controllerName="ch.avectris.todo.TodoListClient.controller.NewTodo" xmlns:html="http://www.w3.org/1999/xhtml">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ch.avectris.todo.TodoListClient.controller.NewTodo">
 	<App>
 		<pages>
-			<Page 
-				title="New Todo"
-				showNavButton="true"
-				navButtonPress="onNavBack">
+			<Page title="New Todo" showNavButton="true" navButtonPress="onNavBack">
 				<content>
-					<form:SimpleForm maxContainerCols="2"
-                          editable="true"
-                          layout="ResponsiveGridLayout"
-                          labelSpanL="3"
-                          labelSpanM="3"
-                          emptySpanL="0"
-                          emptySpanM="0"
-                          columnsL="2"
-                          columnsM="2"
-                          adjustLabelSpan="false"
-                          id="new_todo_form"
-                          class="editableForm">
+					<form:SimpleForm 
+						maxContainerCols="2" 
+						editable="true" 
+						layout="ResponsiveGridLayout" 
+						labelSpanL="3" 
+						labelSpanM="3" 
+						emptySpanL="0" 
+						emptySpanM="0" 
+						columnsL="2" 
+						columnsM="2"
+						adjustLabelSpan="false" 
+						id="new_todo_form" 
+						class="editableForm">
 						<form:content>
-							<Label text="Name"></Label>
-							<Input placeholder="" id="new_todo_name" />
-							<Label text="Description"></Label>
-							<TextArea placeholder="" id="new_todo_description"/>
-							<Label text="Finish date"></Label>
-							<DatePicker placeholder="" valueFormat="dd.MM.yyyy"  id="new_todo_finishDate"/>
+							<Label text="Name"/>
+							<Input placeholder="" required="true" id="new_todo_name"/>
+							<Label text="Description"/>
+							<TextArea placeholder="" required="false" id="new_todo_description"/>
+							<Label text="Finish date"/>
+							<DatePicker placeholder="" required="true" valueFormat="dd.MM.yyyy" id="new_todo_finishDate"/>
 						</form:content>
 					</form:SimpleForm>
 				</content>
 				<footer>
 					<Bar>
 						<contentRight>
-							<Button
-					        	text="Add"
-								press="onAddPress" />
+							<Button text="Add" press="onAddPress" icon="sap-icon://save"/>
 						</contentRight>
 					</Bar>
 				</footer>

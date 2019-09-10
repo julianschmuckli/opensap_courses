@@ -8,7 +8,7 @@ public abstract class TodoServiceMetadata
 
     private static com.sap.cloud.server.odata.csdl.CsdlDocument resolve()
     {
-        //# /usr/sap/ljs/xs-temp/2dbdce2d-5f98-42ec-82c4-eeb49ec3e5c6/output/target/tmp/proxy-ch.avectris.todo.csdl.xs:148:12
+        //# /usr/sap/ljs/xs-temp/bf3f8ea4-ff32-4d0c-aff1-8c3d89f8c823/output/target/tmp/proxy-ch.avectris.todo.csdl.xs:163:12
         ch.avectris.todo.proxy.internal.TodoServiceFactory.registerAll();
         ch.avectris.todo.proxy.internal.TodoServiceMetadataParser.parsed.setGeneratedProxies(true);
         return ch.avectris.todo.proxy.internal.TodoServiceMetadataParser.parsed;

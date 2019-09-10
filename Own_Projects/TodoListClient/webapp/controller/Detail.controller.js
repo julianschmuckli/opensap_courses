@@ -41,6 +41,8 @@ sap.ui.define([
 			this.getView().byId("detail_todo_finishDate").setEditable(true);
 			this.getView().byId("detail_edit_activate").setVisible(false);
 			this.getView().byId("detail_edit_save").setVisible(true);
+			
+			this.getView().byId("detail_todo_name").focus();
 		},
 		
 		lockFields: function (){
@@ -65,17 +67,34 @@ sap.ui.define([
 			}, {
 				success: function() {
 					this.showSuccessMessage({message: "The todo item has been updated."});
+					this.refreshMainModel();
 					this.lockFields();
 				}.bind(this)
 			});
 		},
 		
-		onDeletePress: function(){
+		onDonePress: function(){
+			this.showConfirmDialog("Do you want to mark this item as Done?", function(){
+				//When user has click on confirm.
+				this.getView().getModel('todo_service').update('/todo_itemsSet(' + this.current_todo_id + ')', {
+					done: true
+				}, {
+					success: function() {
+						this.showSuccessMessage({message: "The todo item has been marked as Done."});
+						this.refreshMainModel();
+					}.bind(this)
+				});
+			}.bind(this), "confirm");
+		},
+		
+		onDeletePress: function() {
 			this.showConfirmDialog("Do you really want to delete this todo item?", function(){
 				//When user has click on confirm.
 				this.getView().getModel('todo_service').remove('/todo_itemsSet(' + this.current_todo_id + ')', {
 					success: function() {
 						this.showSuccessMessage({message: "The todo item has been deleted."});
+						this.lockFields();
+						this.refreshMainModel();
 						this.onNavBack();
 					}.bind(this)
 				});
