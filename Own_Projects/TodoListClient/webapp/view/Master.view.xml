@@ -4,40 +4,60 @@
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-						<List 
-							items="{
-								path: 'todo_service>/todo_itemsSet',
-								sorter: {
-									path: 'done',
-									descending: false,
-									group: true
-								},
-								groupHeaderFactory: '.getGroupHeader'
-							}"
-							noDataText="No data available"
-							id="todo_list"
-							growing="true"
-							growingThreshold="10"
-							growingScrollToLoad="true">
+						<IconTabBar>
 							<items>
-								<ObjectListItem type="Navigation" press=".onTodoPress" icon="" title="{todo_service>title}">
-									<attributes>
-										<ObjectAttribute title="Beschreibung" text="{todo_service>description}"/>
-										<ObjectAttribute title="Fertigstellung" text="{ path: 'todo_service>finishDate', formatter: '.formatter.dateFormat'}"/>
-									</attributes>
-									<markers>
-										<ObjectMarker type="{= ${todo_service>done} ? 'Flagged' : 'Favorite' }" additionalInfo="T"/>
-									</markers>
-									<firstStatus>
-										<ObjectStatus
-											text="{path: 'todo_service>finishDate', formatter: '.formatter.checkIfDelayedText'}"
-											state="{path: 'todo_service>finishDate', formatter: '.formatter.checkIfDelayedState'}"
-											visible="{= !${todo_service>done}}"
-										></ObjectStatus>
-									</firstStatus>
-								</ObjectListItem>
+								<IconTabFilter icon="sap-icon://list"> 
+									<content>
+										<List 
+											items="{
+												path: 'todo_service>/todo_itemsSet',
+												sorter: [{
+													path: 'done',
+													descending: false,
+													group: true
+												}, {
+													path: 'finishDate',
+													descending: true
+												}],
+												groupHeaderFactory: '.getGroupHeader'
+											}"
+											noDataText="No data available"
+											id="todo_list"
+											growing="true"
+											growingThreshold="10"
+											growingScrollToLoad="true">
+											<items>
+												<ObjectListItem type="Navigation" press=".onTodoPress" icon="" title="{todo_service>title}">
+													<attributes>
+														<ObjectAttribute title="Description" text="{todo_service>description}"/>
+														<ObjectAttribute title="Finish until" text="{ path: 'todo_service>finishDate', formatter: '.formatter.dateFormat'}"/>
+													</attributes>
+													<markers>
+														<ObjectMarker type="{= ${todo_service>done} ? 'Flagged' : 'Favorite' }" additionalInfo="T"/>
+													</markers>
+													<firstStatus>
+														<ObjectStatus
+															text="{path: 'todo_service>finishDate', formatter: '.formatter.checkIfDelayedText'}"
+															state="{path: 'todo_service>finishDate', formatter: '.formatter.checkIfDelayedState'}"
+															visible="{= !${todo_service>done}}"
+														></ObjectStatus>
+													</firstStatus>
+												</ObjectListItem>
+											</items>
+										</List>
+									</content>
+								</IconTabFilter>
+								<IconTabFilter icon="sap-icon://activity-assigned-to-goal">
+									<content>
+										<VBox class="sapUiTinyMargin" id="details">
+											<ObjectAttribute text="..." title="Total" id="details_total"></ObjectAttribute>
+											<ObjectAttribute text="..." title="Undone tasks" id="details_undone_tasks"></ObjectAttribute>
+											<ObjectAttribute text="..." title="Done tasks" id="details_done_tasks"></ObjectAttribute>
+										</VBox>
+									</content>
+								</IconTabFilter>
 							</items>
-						</List>
+						</IconTabBar>
 					</content>
 					<footer>
 						<Bar>

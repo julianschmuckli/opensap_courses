@@ -11,6 +11,10 @@ sap.ui.define([
 			
 		},
 		
+		onAfterRendering: function() {
+			this.loadMetadata();
+		},
+		
 		onTodoPress: function (oEvent) {
 			var selectedID = oEvent.getSource().getBindingContext("todo_service").getProperty("todo_itemsID");
 			this.getRouter().navTo("Detail", {
@@ -18,11 +22,36 @@ sap.ui.define([
 			});
 		},
 		
+		loadMetadata: function(){
+			var oBinding = this.getView().byId("todo_list").getBinding("items");
+			oBinding.attachChange(function(){
+				this.getView().byId("details_total").setText(oBinding.getLength());
+
+				this.getView().getModel('todo_service').read('/todo_itemsSet', {
+					success: function(data){
+						var undone_tasks = data.results.filter(function(item){
+							return !item.done;
+						});
+						
+						var done_tasks = data.results.filter(function(item){
+							return item.done;
+						});
+						
+						this.getView().byId("details_done_tasks").setText(done_tasks.length);
+						this.getView().byId("details_undone_tasks").setText(undone_tasks.length);
+					}.bind(this),
+					error: function(e){
+						
+					}
+				});
+			}.bind(this));
+		},
+		
 		onNewPress: function() {
 			this.getRouter().navTo("NewTodo");
 		},
 		
-		getGroupHeader: function (oGroup){
+		getGroupHeader: function (oGroup) {
 			var title;
 			if (oGroup.key) {
 				title = "Done";
