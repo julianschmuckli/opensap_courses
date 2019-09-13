@@ -47,6 +47,26 @@ sap.ui.define([
 			}.bind(this));
 		},
 		
+		markAllAsUndone: function(oEvent){
+			this.getView().getModel('todo_service').read('/todo_itemsSet', {
+				success: function(data){
+					data.results.forEach(function(item){
+						this.getView().getModel('todo_service').update('/todo_itemsSet(' + item.todo_itemsID + ')', {
+							done: false
+						}, {
+							success: function() {
+								this.showSuccessMessage({message: "All the items has been marked as Undone."});
+								this.refreshMainModel();
+							}.bind(this)
+						});
+					}.bind(this));
+				}.bind(this),
+				error: function(e){
+					
+				}
+			});
+		},
+		
 		onNewPress: function() {
 			this.getRouter().navTo("NewTodo");
 		},

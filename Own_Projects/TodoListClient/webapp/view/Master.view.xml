@@ -53,6 +53,7 @@
 											<ObjectAttribute text="..." title="Total" id="details_total"></ObjectAttribute>
 											<ObjectAttribute text="..." title="Undone tasks" id="details_undone_tasks"></ObjectAttribute>
 											<ObjectAttribute text="..." title="Done tasks" id="details_done_tasks"></ObjectAttribute>
+											<Button text="Mark all as undone" press=".markAllAsUndone"></Button>
 										</VBox>
 									</content>
 								</IconTabFilter>
